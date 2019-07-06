@@ -1,0 +1,24 @@
+{
+  "name": "belt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@material/button": "^3.0.0",
+    "autoprefixer": "^9.6.1",
+    "css-loader": "^3.0.0",
+    "extract-loader": "^3.1.0",
+    "file-loader": "^4.0.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^2.11.5"
+  }
+}

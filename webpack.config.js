@@ -1,7 +1,7 @@
 const autoprefixer = require('autoprefixer');
 
-module.exports = [{
-    entry: './src/main/ui-src/sass/app.scss',
+module.exports = {
+    entry: ['./src/main/ui-src/sass/app.scss', './src/main/ui-src/js/app.js'],
     output: {
         // This is necessary for webpack to compile
         // But we never use style-bundle.js
@@ -36,4 +36,4 @@ module.exports = [{
             }
         ]
     },
-}];
+};

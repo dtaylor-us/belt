@@ -29,7 +29,7 @@
                        {:source-paths ["src/main/ui-src" "env/dev/cljs"]
                         :compiler
                         {:main "ui.dev"
-                         :output-to "src/main/resources/static/js/app.js"
+                         :output-to "src/main/resources/static/js/ui.js"
                          :output-dir "src/main/resources/static/js/dev"
                          :asset-path   "js/dev"
                          :source-map true
@@ -41,7 +41,7 @@
                        :release
                        {:source-paths ["src/main/ui-src" "env/prod/cljs"]
                         :compiler
-                        {:output-to "src/main/resources/static/js/app.js"
+                        {:output-to "src/main/resources/static/js/ui.js"
                          :output-dir "src/main/resources/static/js/out"
                          :optimizations :advanced
                          :infer-externs true

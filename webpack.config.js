@@ -18,8 +18,8 @@ module.exports = {
                             name: 'src/main/resources/static/css/bundle.css',
                         },
                     },
-                    { loader: 'extract-loader' },
-                    { loader: 'css-loader' },
+                    {loader: 'extract-loader'},
+                    {loader: 'css-loader'},
                     {
                         loader: 'postcss-loader',
                         options: {

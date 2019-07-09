@@ -1,30 +1,28 @@
 (ns ui.core
-    (:require
-      [reagent.core :as r]
-      [ajax.core :refer [GET POST]]))
+  (:require
+    [reagent.core :as r]
+    [ui.db :refer [app-state]]
+    [ui.header :refer [header]]
+    [ui.belt :refer [belt]]
+    [ui.service :refer [get-data print-state]]))
+
+(enable-console-print!)
 
 ;; -------------------------
 ;; Views
-(defn handler [response]
-  (.log js/console (str response)))
-
-(defn error-handler [{:keys [status status-text]}]
-  (.log js/console (str "something bad happened: " status " " status-text)))
-
-(defn get-test [user-data]
-  (GET "http://localhost:8080/belt/" {:handler handler
-                                      :error-handler error-handler}))
-
-(defn home-page []
+(defn app []
   [:div
-   [:h2 "Welcome to Reagent"]
-   [:button.foo-button.mdc-button {:on-click (fn [] (get-test))} "Button"]])
+   [header]
+   [belt]])
 
 ;; -------------------------
 ;; Initialize app
+(defn init-db []
+  (get-data))
 
 (defn mount-root []
-  (r/render [home-page] (.getElementById js/document "app")))
+  (init-db)
+  (r/render [app] (.getElementById js/document "app")))
 
 (defn init! []
   (mount-root))

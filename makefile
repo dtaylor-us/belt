@@ -15,6 +15,7 @@ dev-ui--run:
 app: build-styles app-build-ui start-app
 
 app-build-ui: clean-ui
+# Determine why this causes issue with compiled CLJ on server
 	lein package
 
 start-app:

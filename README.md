@@ -1,4 +1,4 @@
-## Perquisites
+## Prerequisites
 
 *  JDK
 *  [leiningen](https://leiningen.org/)

@@ -4,6 +4,13 @@
 *  [leiningen](https://leiningen.org/)
 *  [npm](https://www.npmjs.com/get-npm)
 *  docker
+*  IDE (IntelliJ)
+*  Rest Client (Postman or [IntelliJ Http-Client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html))
+
+##### Suggested tweaks in IDE for project
+
+*  Clojure Plugin (Clojure-kit or Cursive)
+*  [Enable Javascript Language Version ES6](https://intellij-support.jetbrains.com/hc/en-us/community/posts/207000815-How-do-I-enable-support-for-ECMA-6-)
 
 ## Stack
 

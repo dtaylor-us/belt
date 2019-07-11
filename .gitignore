@@ -68,7 +68,6 @@ secrets.yml
 
 ### REAGENT ####
 
-pom.xml
 .lein-repl-history
 pom.xml.asc
 .nrepl-port

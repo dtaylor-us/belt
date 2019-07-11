@@ -4,6 +4,8 @@
             [clojure.walk :as walk]
             [ajax.core :refer [GET POST]]))
 
+(enable-console-print!)
+
 (defn handler [response]
   (.log js/console (str response)))
 
@@ -24,8 +26,8 @@
 (defn print-state []
   (let [data (:belts @app-state)]
     (println
-      (into []
-            (map
-             (fn [belt]
-               (println belt))
-             data)))))
+     (into []
+           (map
+            (fn [belt]
+              (.log js/console belt))
+            data)))))

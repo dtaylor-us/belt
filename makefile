@@ -12,7 +12,7 @@ dev-ui--run:
 
 
 ###### APP ######
-app: build-styles app-build-ui start-app
+app: app-build-ui build-styles start-app
 
 app-build-ui: clean-ui
 # Determine why this causes issue with compiled CLJ on server

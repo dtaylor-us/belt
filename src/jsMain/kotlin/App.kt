@@ -16,7 +16,7 @@ val App = functionalComponent<RProps> { _ ->
     }
 
     h1 {
-        +"LCTA Belt Application"
+        +"LCTA Belt App"
     }
     ul {
         belt.sortedByDescending(Belt::rank).forEach { item ->

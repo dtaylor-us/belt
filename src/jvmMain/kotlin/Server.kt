@@ -19,48 +19,50 @@ val beltList = mutableListOf(
         Rank.NONE.order,
         Level.BEGINNER.level,
         "NA",
-        BeltColor.WHITE.color
+        BeltColor.BLACK.color
     )
 )
 
 fun main() {
-    embeddedServer(Netty, 9090) {
-        install(ContentNegotiation) {
-            json()
+    embeddedServer(Netty, watchPaths = listOf("lcta"), port = 9090, module = Application::module).start(wait = true)
+}
+
+fun Application.module() {
+    install(ContentNegotiation) {
+        json()
+    }
+    install(CORS) {
+        method(HttpMethod.Get)
+        method(HttpMethod.Post)
+        method(HttpMethod.Delete)
+        anyHost()
+    }
+    install(Compression) {
+        gzip()
+    }
+    routing {
+        get("/") {
+            call.respondText(
+                this::class.java.classLoader.getResource("index.html")!!.readText(),
+                ContentType.Text.Html
+            )
         }
-        install(CORS) {
-            method(HttpMethod.Get)
-            method(HttpMethod.Post)
-            method(HttpMethod.Delete)
-            anyHost()
+        static("/") {
+            resources("")
         }
-        install(Compression) {
-            gzip()
-        }
-        routing {
-            get("/") {
-                call.respondText(
-                    this::class.java.classLoader.getResource("index.html")!!.readText(),
-                    ContentType.Text.Html
-                )
+        route(Belt.path) {
+            get {
+                call.respond(beltList)
             }
-            static("/") {
-                resources("")
+            post {
+                beltList += call.receive<Belt>()
+                call.respond(HttpStatusCode.OK)
             }
-            route(Belt.path) {
-                get {
-                    call.respond(beltList)
-                }
-                post {
-                    beltList += call.receive<Belt>()
-                    call.respond(HttpStatusCode.OK)
-                }
-                delete("/{id}") {
-                    val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
-                    beltList.removeIf { it.id == id }
-                    call.respond(HttpStatusCode.OK)
-                }
+            delete("/{id}") {
+                val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
+                beltList.removeIf { it.id == id }
+                call.respond(HttpStatusCode.OK)
             }
         }
-    }.start(wait = true)
+    }
 }

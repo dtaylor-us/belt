@@ -1,15 +1,16 @@
 enum class BeltColor(val color: String, val order: Int) {
     WHITE("white", 0),
     YELLOW("yellow", 1),
-    GREEN("green", 2),
-    PURPLE("purple", 3),
-    BLUE("blue", 4),
-    BLUE_LEADER("blue leader", 4),
-    BROWN("brown", 5),
-    RED("red", 6),
-    RED_LEADER("red leader", 7),
-    DPTY_BLACK("deputy black", 8),
-    BLACK("black", 9)
+    ORANGE("orange", 2),
+    GREEN("green", 3),
+    PURPLE("purple", 4),
+    BLUE("blue", 5),
+    BLUE_LEADER("blue leader", 6),
+    BROWN("brown", 7),
+    RED("red", 8),
+    RED_LEADER("red leader", 9),
+    DPTY_BLACK("deputy black", 10),
+    BLACK("black", 11)
 }
 
 enum class Rank(val rank: String, val order: Int) {

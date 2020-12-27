@@ -19,7 +19,7 @@ val App = functionalComponent<RProps> { _ ->
         +"LCTA Belt App"
     }
     ul {
-        belt.sortedByDescending(Belt::rank).forEach { item ->
+        belt.sortedBy(Belt::order).forEach { item ->
             li {
                 key = item.toString()
                 attrs.onClickFunction = {
@@ -28,7 +28,7 @@ val App = functionalComponent<RProps> { _ ->
                         setBelt(getBelt())
                     }
                 }
-                +"${item.rank} Keup - ${item.color.capitalize()} - ${item.level.toUpperCase()} "
+                +"${item.rank} Keup - ${item.color.capitalize()} Belt - ${item.level.toUpperCase()} "
             }
         }
     }

@@ -67,6 +67,10 @@ kotlin {
                 implementation("org.jetbrains:kotlin-react-dom:16.13.1-pre.110-kotlin-1.4.0")
                 implementation(npm("react", "16.13.1"))
                 implementation(npm("react-dom", "16.13.1"))
+                implementation(npm("@chakra-ui/react", "1.0.4"))
+                implementation(npm("@emotion/react", "11.1.4"))
+                implementation(npm("@emotion/styled", "11.0.0"))
+                implementation(npm("framer-motion", "3.1.1"))
             }
         }
     }

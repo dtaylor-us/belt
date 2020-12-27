@@ -12,23 +12,15 @@ import io.ktor.server.netty.*
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
 
-val connectionString: ConnectionString? = System.getenv("MONGODB_URI")?.let {
-    ConnectionString("$it?retryWrites=false")
-}
+//val connectionString: ConnectionString? = System.getenv("MONGODB_URI")?.let {
+//    ConnectionString("$it?retryWrites=false")
+//}
+//
+//val client = if (connectionString != null) KMongo.createClient(connectionString).coroutine else KMongo.createClient().coroutine
+//val database = client.getDatabase(connectionString?.database ?: "lcta")
+//
+//
 
-val client = if (connectionString != null) KMongo.createClient(connectionString).coroutine else KMongo.createClient().coroutine
-val database = client.getDatabase(connectionString?.database ?: "lcta")
-
-
-val beltList = mutableListOf(
-    Belt(
-        Rank.NONE.rank,
-        Rank.NONE.order,
-        Level.BEGINNER.level,
-        "NA",
-        BeltColor.BLACK.color
-    )
-)
 
 fun main() {
     val port = System.getenv("PORT")?.toInt() ?: 9090
@@ -66,11 +58,11 @@ fun Application.module() {
                 beltList += call.receive<Belt>()
                 call.respond(HttpStatusCode.OK)
             }
-            delete("/{id}") {
-                val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
-                beltList.removeIf { it.id == id }
-                call.respond(HttpStatusCode.OK)
-            }
+//            delete("/{id}") {
+//                val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
+//                beltList.removeIf { it.id == id }
+//                call.respond(HttpStatusCode.OK)
+//            }
         }
     }
 }

@@ -1,3 +1,4 @@
+import com.mongodb.ConnectionString
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
@@ -8,10 +9,16 @@ import io.ktor.routing.*
 import io.ktor.serialization.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import org.litote.kmongo.coroutine.coroutine
+import org.litote.kmongo.reactivestreams.KMongo
 
-//val client = KMongo.createClient().coroutine
-//val database = client.getDatabase("lcta")
-//val collection = database.getCollection<Belt>()
+val connectionString: ConnectionString? = System.getenv("MONGODB_URI")?.let {
+    ConnectionString("$it?retryWrites=false")
+}
+
+val client = if (connectionString != null) KMongo.createClient(connectionString).coroutine else KMongo.createClient().coroutine
+val database = client.getDatabase(connectionString?.database ?: "lcta")
+
 
 val beltList = mutableListOf(
     Belt(
@@ -24,7 +31,8 @@ val beltList = mutableListOf(
 )
 
 fun main() {
-    embeddedServer(Netty, watchPaths = listOf("lcta"), port = 9090, module = Application::module).start(wait = true)
+    val port = System.getenv("PORT")?.toInt() ?: 9090
+    embeddedServer(Netty, watchPaths = listOf("lcta"), port = port, module = Application::module).start(wait = true)
 }
 
 fun Application.module() {

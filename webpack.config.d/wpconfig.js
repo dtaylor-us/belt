@@ -1,1 +1,0 @@
-config.watch = true;

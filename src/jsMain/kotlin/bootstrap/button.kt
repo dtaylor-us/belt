@@ -3,8 +3,8 @@
 
 package bootstrap
 
-import kotlinx.html.ButtonType
-import react.*
+import react.RClass
+import react.RProps
 
 @JsName("default")
 external val button: RClass<ButtonProps>
@@ -14,7 +14,7 @@ external interface ButtonProps : RProps {
     var block: Boolean?
     var variant: String?
     var size: String?
-    var type: ButtonType?
+    var type: String?
     var href: String?
     var disabled: Boolean?
     var target: Any?

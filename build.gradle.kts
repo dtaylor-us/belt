@@ -35,6 +35,8 @@ kotlin {
                 implementation(kotlin("stdlib-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation(npm("bootstrap", "4.5.3"))
+
             }
         }
         val commonTest by getting {
@@ -67,10 +69,13 @@ kotlin {
                 implementation("org.jetbrains:kotlin-react-dom:16.13.1-pre.110-kotlin-1.4.0")
                 implementation(npm("react", "16.13.1"))
                 implementation(npm("react-dom", "16.13.1"))
-                implementation(npm("@chakra-ui/react", "1.0.4"))
-                implementation(npm("@emotion/react", "11.1.4"))
-                implementation(npm("@emotion/styled", "11.0.0"))
-                implementation(npm("framer-motion", "3.1.1"))
+                implementation(npm("react-bootstrap", "1.4.0"))
+//                implementation(npm("@emotion/core", "11.0.0"))
+//                implementation(npm("@chakra-ui/react", "1.0.4"))
+//                implementation(npm("@chakra-ui/core", "0.8.0"))
+//                implementation(npm("@emotion/react", "11.1.4"))
+//                implementation(npm("@emotion/styled", "11.0.0"))
+//                implementation(npm("framer-motion", "3.1.1"))
             }
         }
     }

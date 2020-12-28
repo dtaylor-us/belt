@@ -1,7 +1,10 @@
 APP=lcta
 
 start-dev:
-	./gradlew installDist -t & ./gradlew run -t
+	./gradlew run -t
+
+auto-reload:
+	./gradlew installDist -t
 
 deploy:
 	git push heroku master

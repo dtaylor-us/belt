@@ -16,7 +16,7 @@ enum class BeltColor(val color: String, val order: Int) {
 enum class Rank(val rank: String, val order: Int) {
     NONE("none", 0),
     NINTH("9th", 1),
-    EIGTH("8th", 2),
+    EIGHTH("8th", 2),
     SEVENTH("7th", 3),
     SIXTH("6th", 4),
     FIFTH("5th", 5),

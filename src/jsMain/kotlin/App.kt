@@ -8,6 +8,7 @@ import kotlinx.coroutines.*
 import kotlinx.css.Color
 import kotlinx.css.color
 import kotlinx.html.InputType
+import kotlinx.html.classes
 import styled.css
 import styled.styledDiv
 
@@ -31,6 +32,10 @@ val App = functionalComponent<RProps> { _ ->
                 +"LCTA Belt Application"
             }
 
+    }
+    h1 {
+        attrs.classes = setOf("red ml3 pt4")
+        +"REACT BOOTSTRAP + TACHYONS!!!"
     }
     ul {
         belt.sortedBy(Belt::order).forEach { item ->

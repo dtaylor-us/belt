@@ -10,6 +10,7 @@ import react.RProps
 external val navbar: RClass<NavbarProps>
 
 external interface NavbarProps : RProps {
+    var className: String?
     var variant: String?
     var expand: String?
     var bg: String?
@@ -20,5 +21,14 @@ external interface NavbarProps : RProps {
     var collapseOnSelect: Boolean?
     var expanded: Boolean?
     var role: String?
+}
+
+@JsName("default")
+external val navbarBrand: RClass<NavBarBrandProps>
+
+external interface NavBarBrandProps : RProps {
+    var bsPrefix: String?
+    var className: String?
+    var href: String?
 }
 

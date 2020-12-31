@@ -4,8 +4,6 @@ import react.dom.render
 
 fun main() {
     render(document.getElementById("root")) {
-//        chakraProvider {
             child(App)
-//        }
     }
 }

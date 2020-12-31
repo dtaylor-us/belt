@@ -1,8 +1,15 @@
+import bootstrap.navbar
+import bootstrap.navbarBrand
 import react.*
 import react.dom.*
 import kotlinext.js.*
 import kotlinx.html.js.*
 import kotlinx.coroutines.*
+import kotlinx.css.Color
+import kotlinx.css.color
+import kotlinx.html.InputType
+import styled.css
+import styled.styledDiv
 
 private val scope = MainScope()
 
@@ -15,8 +22,15 @@ val App = functionalComponent<RProps> { _ ->
         }
     }
 
-    h1 {
-        +"LCTA Belt App"
+
+        navbar {
+            attrs.bg = "dark"
+            attrs.className = "white"
+            attrs.variant = "dark"
+            navbarBrand {
+                +"LCTA Belt Application"
+            }
+
     }
     ul {
         belt.sortedBy(Belt::order).forEach { item ->

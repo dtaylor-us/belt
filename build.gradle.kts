@@ -61,6 +61,11 @@ kotlin {
             dependencies {
                 implementation("io.ktor:ktor-client-js:$ktorVersion") //include http&websockets
 
+                //Kotlin Styled
+                implementation("org.jetbrains:kotlin-styled:1.0.0-pre.110-kotlin-1.4.0")
+                implementation(npm("styled-components", "~5.1.1"))
+                implementation(npm("inline-style-prefixer", "~6.0.0"))
+
                 //ktor client js json
                 implementation("io.ktor:ktor-client-json-js:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization-js:$ktorVersion")

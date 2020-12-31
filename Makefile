@@ -7,6 +7,6 @@ auto-reload:
 	./gradlew installDist -t
 
 deploy:
-	git push deploy master
+	git push heroku master
 
 

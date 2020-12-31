@@ -7,6 +7,6 @@ auto-reload:
 	./gradlew installDist -t
 
 deploy:
-	git push all master
+	git push deploy master
 
 
